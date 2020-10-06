@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-order.1.4.0.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-order.1.4.0.wsdl">
+  <wsdl:types>
+    <s:schema targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-order.1.4.0.wsdl" elementFormDefault="unqualified">
+      <s:complexType name="ArrayOfStringType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="limitStart" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="limit" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filterSearch" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filters" type="tns:readList_filters"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ordering" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="orderingDirection" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readList_filters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="delivery_address_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="company_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="department_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="previous_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="currency_code" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="shipping_code" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="status_code" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="payment_method" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="payment_status" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:readListResponse_list"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readListResponse_list">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="unbounded" name="item" type="tns:readListResponse_list_item"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="readListResponse_list_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="delivery_address_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="delivery_address_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="department_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="department_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="user_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="user_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="currency_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="total_price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="discount_type" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="status_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="requisition" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="comment" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_date" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_details" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="payment_method" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="payment_status" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="readItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:readItemResponse_item"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readItemResponse_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="delivery_address_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="delivery_address_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="department_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="department_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="user_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="user_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="currency_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="total_price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="discount_type" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="status_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="requisition" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="comment" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_date" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shipping_details" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="payment_method" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="payment_status" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="delivery_address_id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="department_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="shipping_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="requisition" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="shipping_date" type="s:dateTime"/>
+            <s:element minOccurs="0" maxOccurs="1" name="shipping_details" type="tns:ArrayOfStringType"/>
+            <s:element minOccurs="1" maxOccurs="1" name="items" type="tns:ArrayOfStringType"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="erp_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="status_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="requisition" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="site.redshopb-order.1.4.0">
+    <wsdl:documentation>Maintains the orders</wsdl:documentation>
+    <wsdl:port name="site.redshopb-order.1.4.0_Soap" binding="tns:site.redshopb-order.1.4.0">
+      <soap:address location="http://localhost/workdemo/shop/administrator/index.php?webserviceClient=site&amp;webserviceVersion=1.4.0&amp;option=redshopb&amp;view=order&amp;api=soap"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:message name="readListRequest">
+    <wsdl:part name="parameters" element="tns:readList"/>
+  </wsdl:message>
+  <wsdl:message name="readListResponse">
+    <wsdl:part name="parameters" element="tns:readListResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="site.redshopb-order.1.4.0">
+    <wsdl:operation name="readList">
+      <wsdl:input message="tns:readListRequest"/>
+      <wsdl:output message="tns:readListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <wsdl:input message="tns:readItemRequest"/>
+      <wsdl:output message="tns:readItemResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:createRequest"/>
+      <wsdl:output message="tns:createResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateRequest"/>
+      <wsdl:output message="tns:updateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteRequest"/>
+      <wsdl:output message="tns:deleteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="site.redshopb-order.1.4.0" type="tns:site.redshopb-order.1.4.0">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="readList">
+      <soap:operation soapAction="readList" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <soap:operation soapAction="readItem" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="create" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="update" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="delete" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="readItemRequest">
+    <wsdl:part name="parameters" element="tns:readItem"/>
+  </wsdl:message>
+  <wsdl:message name="readItemResponse">
+    <wsdl:part name="parameters" element="tns:readItemResponse"/>
+  </wsdl:message>
+  <wsdl:message name="createRequest">
+    <wsdl:part name="parameters" element="tns:create"/>
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part name="parameters" element="tns:createResponse"/>
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part name="parameters" element="tns:update"/>
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="parameters" element="tns:updateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part name="parameters" element="tns:delete"/>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="tns:deleteResponse"/>
+  </wsdl:message>
+</wsdl:definitions>

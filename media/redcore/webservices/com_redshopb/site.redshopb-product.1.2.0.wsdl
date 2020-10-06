@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-product.1.2.0.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-product.1.2.0.wsdl">
+  <wsdl:types>
+    <s:schema targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-product.1.2.0.wsdl" elementFormDefault="unqualified">
+      <s:complexType name="ArrayOfStringType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="limitStart" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="limit" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filterSearch" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filters" type="tns:readList_filters"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ordering" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="orderingDirection" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readList_filters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sku" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="manufacturer_sku" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="related_sku" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="template_code" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="company_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="category_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="manufacturer_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="decimal_position" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="filter_fieldset_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="unit_measure_code" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="service" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="discontinued" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="featured" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="previous_id" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="include_categories" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="include_tags" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:readListResponse_list"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readListResponse_list">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="unbounded" name="item" type="tns:readListResponse_list_item"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="readListResponse_list_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="name" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="alias" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="sku" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="manufacturer_sku" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="related_sku" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="date_new" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="stock_upper_level" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="stock_lower_level" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="template_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="manufacturer_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="decimal_position" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="manufacturer_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="filter_fieldset_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="filter_fieldset_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="unit_measure_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="retail_price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="service" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="discontinued" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="featured" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="categories" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="tags" type="tns:ArrayOfStringType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="readItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:readItemResponse_item"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readItemResponse_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="name" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="alias" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="sku" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="manufacturer_sku" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="related_sku" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="date_new" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="stock_upper_level" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="stock_lower_level" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="template_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="manufacturer_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="decimal_position" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="manufacturer_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="filter_fieldset_id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="filter_fieldset_id_others" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="unit_measure_code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="retail_price" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="service" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="discontinued" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="featured" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="categories" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="categories_other_ids" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="tags" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="tags_other_ids" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_limits" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="company_limits_other_ids" type="tns:ArrayOfStringType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="name" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="alias" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sku" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturer_sku" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="related_sku" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="date_new" type="s:dateTime"/>
+            <s:element minOccurs="0" maxOccurs="1" name="stock_upper_level" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="stock_lower_level" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="template_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="company_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="category_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturer_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="decimal_position" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filter_fieldset_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="unit_measure_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="retail_price" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="service" type="s:boolean"/>
+            <s:element minOccurs="0" maxOccurs="1" name="featured" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="erp_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="alias" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="sku" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturer_sku" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="related_sku" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="date_new" type="s:dateTime"/>
+            <s:element minOccurs="0" maxOccurs="1" name="stock_upper_level" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="stock_lower_level" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="template_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="category_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturer_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="decimal_position" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filter_fieldset_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="unit_measure_code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="retail_price" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="service" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_read">
+        <s:complexType/>
+      </s:element>
+      <s:element name="task_readResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_publish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_publishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_unpublish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_unpublishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_setPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="erp_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_setPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_setRetailPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="retail_price" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="erp_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_setRetailPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_feature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_featureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_unfeature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_unfeatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_discontinue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_discontinueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_categoryAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_categoryAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_categoryRemove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_categoryRemoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_tagAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="tag_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_tagAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_tagRemove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="tag_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_tagRemoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_companyLimitationAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_companyLimitationAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_companyLimitationRemove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="company_id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_companyLimitationRemoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_translate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="language" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="name" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="alias" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_translateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_translateRemove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_translateRemoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="site.redshopb-product.1.2.0">
+    <wsdl:documentation>Maintain and translate products, which are used to catalog products across categories and companies.</wsdl:documentation>
+    <wsdl:port name="site.redshopb-product.1.2.0_Soap" binding="tns:site.redshopb-product.1.2.0">
+      <soap:address location="http://localhost/workdemo/shop/administrator/index.php?webserviceClient=site&amp;webserviceVersion=1.2.0&amp;option=redshopb&amp;view=product&amp;api=soap"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:message name="readListRequest">
+    <wsdl:part name="parameters" element="tns:readList"/>
+  </wsdl:message>
+  <wsdl:message name="readListResponse">
+    <wsdl:part name="parameters" element="tns:readListResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="site.redshopb-product.1.2.0">
+    <wsdl:operation name="readList">
+      <wsdl:input message="tns:readListRequest"/>
+      <wsdl:output message="tns:readListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <wsdl:input message="tns:readItemRequest"/>
+      <wsdl:output message="tns:readItemResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:createRequest"/>
+      <wsdl:output message="tns:createResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateRequest"/>
+      <wsdl:output message="tns:updateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteRequest"/>
+      <wsdl:output message="tns:deleteResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_read">
+      <wsdl:input message="tns:task_readRequest"/>
+      <wsdl:output message="tns:task_readResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_publish">
+      <wsdl:input message="tns:task_publishRequest"/>
+      <wsdl:output message="tns:task_publishResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_unpublish">
+      <wsdl:input message="tns:task_unpublishRequest"/>
+      <wsdl:output message="tns:task_unpublishResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_setPrice">
+      <wsdl:input message="tns:task_setPriceRequest"/>
+      <wsdl:output message="tns:task_setPriceResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_setRetailPrice">
+      <wsdl:input message="tns:task_setRetailPriceRequest"/>
+      <wsdl:output message="tns:task_setRetailPriceResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_feature">
+      <wsdl:input message="tns:task_featureRequest"/>
+      <wsdl:output message="tns:task_featureResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_unfeature">
+      <wsdl:input message="tns:task_unfeatureRequest"/>
+      <wsdl:output message="tns:task_unfeatureResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_discontinue">
+      <wsdl:input message="tns:task_discontinueRequest"/>
+      <wsdl:output message="tns:task_discontinueResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_categoryAdd">
+      <wsdl:input message="tns:task_categoryAddRequest"/>
+      <wsdl:output message="tns:task_categoryAddResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_categoryRemove">
+      <wsdl:input message="tns:task_categoryRemoveRequest"/>
+      <wsdl:output message="tns:task_categoryRemoveResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_tagAdd">
+      <wsdl:input message="tns:task_tagAddRequest"/>
+      <wsdl:output message="tns:task_tagAddResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_tagRemove">
+      <wsdl:input message="tns:task_tagRemoveRequest"/>
+      <wsdl:output message="tns:task_tagRemoveResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_companyLimitationAdd">
+      <wsdl:input message="tns:task_companyLimitationAddRequest"/>
+      <wsdl:output message="tns:task_companyLimitationAddResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_companyLimitationRemove">
+      <wsdl:input message="tns:task_companyLimitationRemoveRequest"/>
+      <wsdl:output message="tns:task_companyLimitationRemoveResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_translate">
+      <wsdl:input message="tns:task_translateRequest"/>
+      <wsdl:output message="tns:task_translateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_translateRemove">
+      <wsdl:input message="tns:task_translateRemoveRequest"/>
+      <wsdl:output message="tns:task_translateRemoveResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="site.redshopb-product.1.2.0" type="tns:site.redshopb-product.1.2.0">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="readList">
+      <soap:operation soapAction="readList" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <soap:operation soapAction="readItem" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="create" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="update" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="delete" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_read">
+      <soap:operation soapAction="task_read" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_publish">
+      <soap:operation soapAction="task_publish" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_unpublish">
+      <soap:operation soapAction="task_unpublish" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_setPrice">
+      <soap:operation soapAction="task_setPrice" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_setRetailPrice">
+      <soap:operation soapAction="task_setRetailPrice" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_feature">
+      <soap:operation soapAction="task_feature" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_unfeature">
+      <soap:operation soapAction="task_unfeature" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_discontinue">
+      <soap:operation soapAction="task_discontinue" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_categoryAdd">
+      <soap:operation soapAction="task_categoryAdd" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_categoryRemove">
+      <soap:operation soapAction="task_categoryRemove" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_tagAdd">
+      <soap:operation soapAction="task_tagAdd" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_tagRemove">
+      <soap:operation soapAction="task_tagRemove" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_companyLimitationAdd">
+      <soap:operation soapAction="task_companyLimitationAdd" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_companyLimitationRemove">
+      <soap:operation soapAction="task_companyLimitationRemove" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_translate">
+      <soap:operation soapAction="task_translate" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_translateRemove">
+      <soap:operation soapAction="task_translateRemove" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="readItemRequest">
+    <wsdl:part name="parameters" element="tns:readItem"/>
+  </wsdl:message>
+  <wsdl:message name="readItemResponse">
+    <wsdl:part name="parameters" element="tns:readItemResponse"/>
+  </wsdl:message>
+  <wsdl:message name="createRequest">
+    <wsdl:part name="parameters" element="tns:create"/>
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part name="parameters" element="tns:createResponse"/>
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part name="parameters" element="tns:update"/>
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="parameters" element="tns:updateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part name="parameters" element="tns:delete"/>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="tns:deleteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_readRequest">
+    <wsdl:part name="parameters" element="tns:task_read"/>
+  </wsdl:message>
+  <wsdl:message name="task_readResponse">
+    <wsdl:part name="parameters" element="tns:task_readResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_publishRequest">
+    <wsdl:part name="parameters" element="tns:task_publish"/>
+  </wsdl:message>
+  <wsdl:message name="task_publishResponse">
+    <wsdl:part name="parameters" element="tns:task_publishResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_unpublishRequest">
+    <wsdl:part name="parameters" element="tns:task_unpublish"/>
+  </wsdl:message>
+  <wsdl:message name="task_unpublishResponse">
+    <wsdl:part name="parameters" element="tns:task_unpublishResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_setPriceRequest">
+    <wsdl:part name="parameters" element="tns:task_setPrice"/>
+  </wsdl:message>
+  <wsdl:message name="task_setPriceResponse">
+    <wsdl:part name="parameters" element="tns:task_setPriceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_setRetailPriceRequest">
+    <wsdl:part name="parameters" element="tns:task_setRetailPrice"/>
+  </wsdl:message>
+  <wsdl:message name="task_setRetailPriceResponse">
+    <wsdl:part name="parameters" element="tns:task_setRetailPriceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_featureRequest">
+    <wsdl:part name="parameters" element="tns:task_feature"/>
+  </wsdl:message>
+  <wsdl:message name="task_featureResponse">
+    <wsdl:part name="parameters" element="tns:task_featureResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_unfeatureRequest">
+    <wsdl:part name="parameters" element="tns:task_unfeature"/>
+  </wsdl:message>
+  <wsdl:message name="task_unfeatureResponse">
+    <wsdl:part name="parameters" element="tns:task_unfeatureResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_discontinueRequest">
+    <wsdl:part name="parameters" element="tns:task_discontinue"/>
+  </wsdl:message>
+  <wsdl:message name="task_discontinueResponse">
+    <wsdl:part name="parameters" element="tns:task_discontinueResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_categoryAddRequest">
+    <wsdl:part name="parameters" element="tns:task_categoryAdd"/>
+  </wsdl:message>
+  <wsdl:message name="task_categoryAddResponse">
+    <wsdl:part name="parameters" element="tns:task_categoryAddResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_categoryRemoveRequest">
+    <wsdl:part name="parameters" element="tns:task_categoryRemove"/>
+  </wsdl:message>
+  <wsdl:message name="task_categoryRemoveResponse">
+    <wsdl:part name="parameters" element="tns:task_categoryRemoveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_tagAddRequest">
+    <wsdl:part name="parameters" element="tns:task_tagAdd"/>
+  </wsdl:message>
+  <wsdl:message name="task_tagAddResponse">
+    <wsdl:part name="parameters" element="tns:task_tagAddResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_tagRemoveRequest">
+    <wsdl:part name="parameters" element="tns:task_tagRemove"/>
+  </wsdl:message>
+  <wsdl:message name="task_tagRemoveResponse">
+    <wsdl:part name="parameters" element="tns:task_tagRemoveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_companyLimitationAddRequest">
+    <wsdl:part name="parameters" element="tns:task_companyLimitationAdd"/>
+  </wsdl:message>
+  <wsdl:message name="task_companyLimitationAddResponse">
+    <wsdl:part name="parameters" element="tns:task_companyLimitationAddResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_companyLimitationRemoveRequest">
+    <wsdl:part name="parameters" element="tns:task_companyLimitationRemove"/>
+  </wsdl:message>
+  <wsdl:message name="task_companyLimitationRemoveResponse">
+    <wsdl:part name="parameters" element="tns:task_companyLimitationRemoveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_translateRequest">
+    <wsdl:part name="parameters" element="tns:task_translate"/>
+  </wsdl:message>
+  <wsdl:message name="task_translateResponse">
+    <wsdl:part name="parameters" element="tns:task_translateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_translateRemoveRequest">
+    <wsdl:part name="parameters" element="tns:task_translateRemove"/>
+  </wsdl:message>
+  <wsdl:message name="task_translateRemoveResponse">
+    <wsdl:part name="parameters" element="tns:task_translateRemoveResponse"/>
+  </wsdl:message>
+</wsdl:definitions>

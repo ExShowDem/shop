@@ -1,0 +1,21 @@
+.modTypeSwitcher {
+  float: right;
+}
+.modRedshopbProductList .flex-direction-nav li {
+  line-height: 40px;
+}
+.modRedshopbProductList .modProductOldPrice {
+  text-decoration: line-through;
+}
+.modRedshopbProductList .modProductImage {
+  position: relative;
+}
+.modRedshopbProductList .modInfoLabels {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.modRedshopbProductList .modInfoLabels span {
+  margin: 5px 5px 0 0;
+  display: block;
+}

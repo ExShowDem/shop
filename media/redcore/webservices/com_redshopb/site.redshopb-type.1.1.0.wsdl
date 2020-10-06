@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-type.1.1.0.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-type.1.1.0.wsdl">
+  <wsdl:types>
+    <s:schema targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-type.1.1.0.wsdl" elementFormDefault="unqualified">
+      <s:complexType name="ArrayOfStringType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="limitStart" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="limit" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filterSearch" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filters" type="tns:readList_filters"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ordering" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="orderingDirection" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readList_filters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="multiple" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:readListResponse_list"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readListResponse_list">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="unbounded" name="item" type="tns:readListResponse_list_item"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="readListResponse_list_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="name" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="multiple" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="code" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="readItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:readItemResponse_item"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readItemResponse_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="name" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="multiple" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="site.redshopb-type.1.1.0">
+    <wsdl:documentation>Lists the available data types in Aesir E-Commerce.</wsdl:documentation>
+    <wsdl:port name="site.redshopb-type.1.1.0_Soap" binding="tns:site.redshopb-type.1.1.0">
+      <soap:address location="http://localhost/workdemo/shop/administrator/index.php?webserviceClient=site&amp;webserviceVersion=1.1.0&amp;option=redshopb&amp;view=type&amp;api=soap"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:message name="readListRequest">
+    <wsdl:part name="parameters" element="tns:readList"/>
+  </wsdl:message>
+  <wsdl:message name="readListResponse">
+    <wsdl:part name="parameters" element="tns:readListResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="site.redshopb-type.1.1.0">
+    <wsdl:operation name="readList">
+      <wsdl:input message="tns:readListRequest"/>
+      <wsdl:output message="tns:readListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <wsdl:input message="tns:readItemRequest"/>
+      <wsdl:output message="tns:readItemResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="site.redshopb-type.1.1.0" type="tns:site.redshopb-type.1.1.0">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="readList">
+      <soap:operation soapAction="readList" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <soap:operation soapAction="readItem" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="readItemRequest">
+    <wsdl:part name="parameters" element="tns:readItem"/>
+  </wsdl:message>
+  <wsdl:message name="readItemResponse">
+    <wsdl:part name="parameters" element="tns:readItemResponse"/>
+  </wsdl:message>
+</wsdl:definitions>

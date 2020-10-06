@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-synonym.1.0.0.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-synonym.1.0.0.wsdl">
+  <wsdl:types>
+    <s:schema targetNamespace="http://localhost/workdemo/shop/media/redcore/webservices/com_redshopb/site.redshopb-synonym.1.0.0.wsdl" elementFormDefault="unqualified">
+      <s:complexType name="ArrayOfStringType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="limitStart" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="limit" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filterSearch" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="filters" type="tns:readList_filters"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ordering" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="orderingDirection" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readList_filters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="word_shared" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="scope" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:readListResponse_list"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readListResponse_list">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="unbounded" name="item" type="tns:readListResponse_list_item"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="readListResponse_list_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="meanings" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="synonyms" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shared" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="word" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="id_others" type="tns:ArrayOfStringType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="readItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="readItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:readItemResponse_item"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="readItemResponse_item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="synonyms" type="tns:ArrayOfStringType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="shared" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="word" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="id_others" type="tns:ArrayOfStringType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="main_word" type="s:boolean"/>
+            <s:element minOccurs="0" maxOccurs="1" name="synonyms" type="tns:ArrayOfStringType"/>
+            <s:element minOccurs="1" maxOccurs="1" name="word" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="shared" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="main_word" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="meanings" type="tns:ArrayOfStringType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="syonyms" type="tns:ArrayOfStringType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="erp_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="word" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="shared" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_unshare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_unshareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_share">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="task_shareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="site.redshopb-synonym.1.0.0">
+    <wsdl:documentation>Maintain synonym list in Aesir E-Commerce.</wsdl:documentation>
+    <wsdl:port name="site.redshopb-synonym.1.0.0_Soap" binding="tns:site.redshopb-synonym.1.0.0">
+      <soap:address location="http://localhost/workdemo/shop/administrator/index.php?webserviceClient=site&amp;webserviceVersion=1.0.0&amp;option=redshopb&amp;view=synonym&amp;api=soap"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:message name="readListRequest">
+    <wsdl:part name="parameters" element="tns:readList"/>
+  </wsdl:message>
+  <wsdl:message name="readListResponse">
+    <wsdl:part name="parameters" element="tns:readListResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="site.redshopb-synonym.1.0.0">
+    <wsdl:operation name="readList">
+      <wsdl:input message="tns:readListRequest"/>
+      <wsdl:output message="tns:readListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <wsdl:input message="tns:readItemRequest"/>
+      <wsdl:output message="tns:readItemResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input message="tns:createRequest"/>
+      <wsdl:output message="tns:createResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateRequest"/>
+      <wsdl:output message="tns:updateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteRequest"/>
+      <wsdl:output message="tns:deleteResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_unshare">
+      <wsdl:input message="tns:task_unshareRequest"/>
+      <wsdl:output message="tns:task_unshareResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="task_share">
+      <wsdl:input message="tns:task_shareRequest"/>
+      <wsdl:output message="tns:task_shareResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="site.redshopb-synonym.1.0.0" type="tns:site.redshopb-synonym.1.0.0">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="readList">
+      <soap:operation soapAction="readList" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readItem">
+      <soap:operation soapAction="readItem" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="create" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="update" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="delete" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_unshare">
+      <soap:operation soapAction="task_unshare" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="task_share">
+      <soap:operation soapAction="task_share" type="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="readItemRequest">
+    <wsdl:part name="parameters" element="tns:readItem"/>
+  </wsdl:message>
+  <wsdl:message name="readItemResponse">
+    <wsdl:part name="parameters" element="tns:readItemResponse"/>
+  </wsdl:message>
+  <wsdl:message name="createRequest">
+    <wsdl:part name="parameters" element="tns:create"/>
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part name="parameters" element="tns:createResponse"/>
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part name="parameters" element="tns:update"/>
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="parameters" element="tns:updateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part name="parameters" element="tns:delete"/>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="tns:deleteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_unshareRequest">
+    <wsdl:part name="parameters" element="tns:task_unshare"/>
+  </wsdl:message>
+  <wsdl:message name="task_unshareResponse">
+    <wsdl:part name="parameters" element="tns:task_unshareResponse"/>
+  </wsdl:message>
+  <wsdl:message name="task_shareRequest">
+    <wsdl:part name="parameters" element="tns:task_share"/>
+  </wsdl:message>
+  <wsdl:message name="task_shareResponse">
+    <wsdl:part name="parameters" element="tns:task_shareResponse"/>
+  </wsdl:message>
+</wsdl:definitions>
